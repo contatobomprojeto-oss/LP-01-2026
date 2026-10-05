@@ -169,10 +169,6 @@ export const LeadsModal: React.FC<LeadsModalProps> = ({
                 <span className="material-symbols-outlined text-[18px]">vpn_key</span>
                 <span>Desbloquear Painel</span>
               </button>
-
-              <p className="text-[11px] text-[#727785]">
-                Senha padrão: <span className="font-mono font-bold text-[#191c20]">ricks</span>
-              </p>
             </form>
 
             <button
