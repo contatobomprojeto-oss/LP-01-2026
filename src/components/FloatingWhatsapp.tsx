@@ -2,6 +2,7 @@ import React from 'react';
 import { ContactConfig } from '../types';
 import { WhatsappIcon } from './WhatsappIcon';
 import { DEFAULT_WHATSAPP_MESSAGE } from '../data/initialData';
+import { trackEvent } from '../utils/analytics';
 
 interface FloatingWhatsappProps {
   config: ContactConfig;
@@ -19,6 +20,7 @@ export const FloatingWhatsapp: React.FC<FloatingWhatsappProps> = ({ config }) =>
         href={getWhatsappUrl()}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={() => trackEvent('contact', { method: 'whatsapp', location: 'floating_button' })}
         aria-label="Agendar conversa no WhatsApp"
         className="h-12 sm:h-14 px-3 sm:px-5 rounded-full bg-[#006e2c] hover:bg-[#005320] text-white shadow-[0_4px_22px_rgba(0,110,44,0.4)] flex items-center gap-2 sm:gap-2.5 hover:scale-105 active:scale-95 transition-all group cursor-pointer border border-[#86f898]/40"
       >

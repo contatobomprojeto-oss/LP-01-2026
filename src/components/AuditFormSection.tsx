@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ContactConfig, Lead } from '../types';
 import { WhatsappIcon } from './WhatsappIcon';
+import { trackEvent } from '../utils/analytics';
 
 interface AuditFormSectionProps {
   config: ContactConfig;
@@ -98,6 +99,12 @@ export const AuditFormSection: React.FC<AuditFormSectionProps> = ({ config, onAd
     } catch {
       // In case of network error, continue smoothly
     }
+
+    trackEvent('generate_lead', {
+      event_category: 'Lead',
+      event_label: clinica,
+      business_type: segmentLabel,
+    });
 
     if (onAddLead) {
       onAddLead(newLead);
