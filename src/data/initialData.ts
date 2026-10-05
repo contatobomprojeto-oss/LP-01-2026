@@ -1,4 +1,4 @@
-import { CaseStudy, ContactConfig, FaqItem, FrenteItem, Lead } from '../types';
+import { CaseStudy, ContactConfig, FaqItem, FrenteItem, Lead, TestimonialItem } from '../types';
 
 export const INITIAL_CONFIG: ContactConfig = {
   whatsappNumber: '5562992231843',
@@ -226,4 +226,78 @@ export const INITIAL_LEADS: Lead[] = [
     notas: 'Deseja atrair mais pacientes particulares para procedimentos estéticos faciais e corporais.',
   },
 ];
+
+export const TESTIMONIALS_DATA: TestimonialItem[] = [
+  {
+    id: 'dep-1',
+    name: 'Dra. Camila Nogueira',
+    role: 'Farmacêutica Responsável & Sócia-Diretora',
+    businessName: 'Drogaria Bem Viver',
+    cityState: 'Goiânia - GO',
+    category: 'farmacia',
+    photoUrl: 'https://images.unsplash.com/photo-1594824813524-8b6b15802319?auto=format&fit=crop&w=400&q=80',
+    rating: 5,
+    highlightMetric: '+185% em pedidos no WhatsApp',
+    comment: 'Competir com duas grandes redes na mesma avenida parecia uma batalha perdida. A Ricks Marketing reestruturou nosso Google Meu Negócio e ativou campanhas no raio de 3km. Em 40 dias, viramos a primeira opção nas buscas locais do bairro e as receitas no WhatsApp triplicaram.',
+    verified: true,
+    timeframe: 'Cliente há 8 meses',
+  },
+  {
+    id: 'dep-2',
+    name: 'Dr. Marcelo Furtado',
+    role: 'Biomédico Esteta & Fundador',
+    businessName: 'Harmonize Estética Avançada',
+    cityState: 'Campinas - SP',
+    category: 'estetica',
+    photoUrl: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=400&q=80',
+    rating: 5,
+    highlightMetric: 'R$ 48.000 em procedimentos no 1º mês',
+    comment: 'Nós já tínhamos queimado muito dinheiro com impulsionamento no Instagram que só trazia curtidas e curiosos. O trabalho da Ricks com Google Ads local e funil de WhatsApp colocou pacientes qualificados na nossa maca para botox e bioestimuladores toda semana.',
+    verified: true,
+    timeframe: 'Cliente há 1 ano',
+  },
+  {
+    id: 'dep-3',
+    name: 'Juliana Menezes',
+    role: 'Proprietária & Farmacêutica Magistral',
+    businessName: 'DermaFórmula Manipulação',
+    cityState: 'Belo Horizonte - MG',
+    category: 'farmacia',
+    photoUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80',
+    rating: 5,
+    highlightMetric: '89% de conversão nas cotações',
+    comment: 'A automação de triagem rápida no WhatsApp integrada com as buscas do Google foi um divisor de águas. Paramos de perder cotações para concorrentes por demora no atendimento. O Henrique e a equipe entregam resultados com seriedade cirúrgica.',
+    verified: true,
+    timeframe: 'Cliente há 6 meses',
+  },
+  {
+    id: 'dep-4',
+    name: 'Dra. Renata Albuquerque',
+    role: 'Fisioterapeuta Dermatofuncional & Diretora',
+    businessName: 'Instituto Renata Albuquerque Estética',
+    cityState: 'Brasília - DF',
+    category: 'estetica',
+    photoUrl: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80',
+    rating: 5,
+    highlightMetric: 'Agenda cheia com 3 semanas de antecedência',
+    comment: 'Nossa clínica era muito dependente de indicações boca a boca. Com a assessoria da Ricks, passamos a dominar os termos mais buscados na Asa Sul. Os pacientes já chegam sabendo o valor dos tratamentos e prontos para fechar pacotes de alta margem.',
+    verified: true,
+    timeframe: 'Cliente há 5 meses',
+  },
+  {
+    id: 'dep-5',
+    name: 'Carlos Eduardo Ramos',
+    role: 'Diretor de Operações',
+    businessName: 'Rede DrogaMais Popular (3 Unidades)',
+    cityState: 'Aparecida de Goiânia - GO',
+    category: 'farmacia',
+    photoUrl: 'https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=400&q=80',
+    rating: 5,
+    highlightMetric: 'ROI de 7.2x em tráfego geolocalizado',
+    comment: 'Padronizar o Google Perfil de Empresa das nossas 3 lojas e alinhar com anúncios de rota no Waze e Maps aumentou o fluxo físico de balcão de forma imediata. A Ricks entende a dor real do varejo farmacêutico independente.',
+    verified: true,
+    timeframe: 'Cliente há 11 meses',
+  },
+];
+
 

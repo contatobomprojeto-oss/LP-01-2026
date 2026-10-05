@@ -51,3 +51,18 @@ export interface FaqItem {
   question: string;
   answer: string;
 }
+
+export interface TestimonialItem {
+  id: string;
+  name: string;
+  role: string;
+  businessName: string;
+  cityState: string;
+  category: 'farmacia' | 'estetica';
+  photoUrl: string;
+  rating: number;
+  highlightMetric: string;
+  comment: string;
+  verified: boolean;
+  timeframe: string;
+}

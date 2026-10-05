@@ -1,12 +1,19 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { FRENTES_DATA } from '../data/initialData';
 
 export const FrentesSection: React.FC = () => {
   return (
-    <section className="w-full py-10 sm:py-20 px-3.5 sm:px-6 max-w-7xl mx-auto" id="frentes">
+    <section className="w-full py-10 sm:py-20 px-3.5 sm:px-6 max-w-7xl mx-auto overflow-hidden" id="frentes">
       <div className="flex flex-col gap-6 sm:gap-12">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto flex flex-col items-center gap-2">
+        {/* Section Header with Fade-In & Slide-Up */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center max-w-3xl mx-auto flex flex-col items-center gap-2"
+        >
           <span className="px-2.5 py-1 rounded-full bg-[#1a73e8]/10 text-[#1a73e8] text-[11px] sm:text-xs font-bold uppercase tracking-wider">
             Metodologia Exclusiva Ricks Marketing
           </span>
@@ -16,14 +23,22 @@ export const FrentesSection: React.FC = () => {
           <p className="text-xs sm:text-base text-[#45474e] leading-relaxed max-w-xl">
             Uma engrenagem comercial validada para consolidar seu estabelecimento de saúde ou estética como a escolha número 1 da sua região.
           </p>
-        </div>
+        </motion.div>
 
-        {/* 5 Cards Layout */}
+        {/* 5 Cards Layout with Staggered Scroll Animation */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-6">
-          {FRENTES_DATA.map((frente) => (
-            <div
+          {FRENTES_DATA.map((frente, index) => (
+            <motion.div
               key={frente.id}
-              className={`p-4 sm:p-6 rounded-2xl bg-[#f1f3f7] border border-[#c1c6d6]/30 flex flex-col justify-between gap-3 sm:gap-3.5 hover:shadow-md transition-all ${
+              initial={{ opacity: 0, y: 35 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{
+                duration: 0.55,
+                delay: index * 0.08,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              className={`p-4 sm:p-6 rounded-2xl bg-[#f1f3f7] border border-[#c1c6d6]/30 flex flex-col justify-between gap-3 sm:gap-3.5 hover:shadow-md transition-shadow ${
                 frente.highlight ? 'md:col-span-2' : ''
               }`}
             >
@@ -72,7 +87,7 @@ export const FrentesSection: React.FC = () => {
                   ))}
                 </ul>
               )}
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

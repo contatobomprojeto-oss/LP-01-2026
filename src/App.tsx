@@ -9,10 +9,10 @@ import { HeroSection } from './components/HeroSection';
 import { GargalosSection } from './components/GargalosSection';
 import { FrentesSection } from './components/FrentesSection';
 import { CasesSection } from './components/CasesSection';
+import { TestimonialsSection } from './components/TestimonialsSection';
 import { CalculatorSection } from './components/CalculatorSection';
 import { AuditFormSection } from './components/AuditFormSection';
 import { FaqSection } from './components/FaqSection';
-import { TechArchitectureSection } from './components/TechArchitectureSection';
 import { CtaBanner } from './components/CtaBanner';
 import { Footer } from './components/Footer';
 import { FloatingWhatsapp } from './components/FloatingWhatsapp';
@@ -74,7 +74,10 @@ export default function App() {
         {/* 4. Cases Reais com ROI */}
         <CasesSection />
 
-        {/* 5. Calculadora Interativa de Oportunidades */}
+        {/* 5. Depoimentos de Clientes & Prova Social */}
+        <TestimonialsSection />
+
+        {/* 6. Calculadora Interativa de Oportunidades */}
         <CalculatorSection config={config} />
 
         {/* 6. Formulário de Auditoria Gratuita (Leads encaminhados direto para o e-mail) */}
@@ -83,10 +86,7 @@ export default function App() {
         {/* 7. FAQ */}
         <FaqSection />
 
-        {/* 8. Bloco Técnico Condensado */}
-        <TechArchitectureSection />
-
-        {/* 9. CTA Final */}
+        {/* 8. CTA Final */}
         <CtaBanner config={config} />
       </main>
 

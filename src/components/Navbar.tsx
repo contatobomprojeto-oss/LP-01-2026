@@ -19,8 +19,9 @@ export const Navbar: React.FC<NavbarProps> = ({ config }) => {
 
   const navLinks = [
     { label: 'Gargalos Locais', href: '#problemas' },
-    { label: '5 Frentes RickS', href: '#frentes' },
+    { label: '5 Frentes Ricks', href: '#frentes' },
     { label: 'Cases Reais', href: '#cases' },
+    { label: 'Depoimentos', href: '#depoimentos' },
     { label: 'Calculadora', href: '#calculadora' },
     { label: 'Dúvidas', href: '#faq' },
     { label: 'Diagnóstico Grátis', href: '#contato', isHighlight: true },
