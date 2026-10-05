@@ -14,7 +14,7 @@ export const GargalosSection: React.FC = () => {
             Reconhece algum destes gargalos no seu negócio hoje?
           </h2>
           <p className="text-xs sm:text-base text-[#45474e] leading-relaxed">
-            Farmácias e clínicas de estética perdem dezenas de pacientes e compras todos os meses por pequenas falhas de indexação, posicionamento e atendimento.
+            Clínicas odontológicas e de estética perdem dezenas de pacientes particulares todos os meses por pequenas falhas de indexação, posicionamento e atendimento.
           </p>
         </div>
 

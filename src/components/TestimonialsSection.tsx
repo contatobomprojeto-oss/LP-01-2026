@@ -4,7 +4,7 @@ import { TESTIMONIALS_DATA } from '../data/initialData';
 import { TestimonialItem } from '../types';
 
 export const TestimonialsSection: React.FC = () => {
-  const [activeFilter, setActiveFilter] = useState<'todos' | 'farmacia' | 'estetica'>('todos');
+  const [activeFilter, setActiveFilter] = useState<'todos' | 'odontologia' | 'estetica'>('todos');
   const [failedImages, setFailedImages] = useState<Record<string, boolean>>({});
 
   const filteredTestimonials = TESTIMONIALS_DATA.filter((item) => {
@@ -37,14 +37,14 @@ export const TestimonialsSection: React.FC = () => {
           </div>
 
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-extrabold text-[#191c20] tracking-tight leading-tight">
-            Quem lidera farmácias e clínicas confia na{' '}
+            Quem lidera clínicas odontológicas e de estética confia na{' '}
             <span className="text-[#1a73e8] bg-gradient-to-r from-[#1a73e8] to-[#0052cc] bg-clip-text text-transparent">
               Ricks Marketing
             </span>
           </h2>
 
           <p className="text-xs sm:text-base text-[#45474e] leading-relaxed max-w-2xl">
-            Veja como transformamos estabelecimentos de saúde e estética em potências locais no Google, gerando filas de novos clientes e pacientes direto no WhatsApp.
+            Veja como transformamos clínicas odontológicas e de estética em potências locais no Google, gerando filas de novos pacientes particulares direto no WhatsApp.
           </p>
 
           {/* Google Reviews Badge Summary */}
@@ -79,7 +79,7 @@ export const TestimonialsSection: React.FC = () => {
             </div>
             <span className="text-xs font-extrabold text-[#191c20]">5.0 de 5.0</span>
             <span className="text-[11px] text-[#45474e] font-medium hidden sm:inline">
-              (Depoimentos verificados de gestores de saúde)
+              (Depoimentos verificados de dentistas e diretores de clínicas)
             </span>
           </div>
         </motion.div>
@@ -113,21 +113,21 @@ export const TestimonialsSection: React.FC = () => {
 
           <button
             type="button"
-            onClick={() => setActiveFilter('farmacia')}
+            onClick={() => setActiveFilter('odontologia')}
             className={`min-h-[40px] px-4 rounded-full text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 flex-shrink-0 ${
-              activeFilter === 'farmacia'
+              activeFilter === 'odontologia'
                 ? 'bg-[#1a73e8] text-white shadow-sm shadow-[#1a73e8]/25'
                 : 'bg-white text-[#45474e] hover:bg-[#f1f3f7] border border-[#c1c6d6]/30'
             }`}
           >
-            <span className="material-symbols-outlined text-[16px]">local_pharmacy</span>
-            <span>Farmácias & Drogarias</span>
+            <span className="material-symbols-outlined text-[16px]">dentistry</span>
+            <span>Clínicas Odontológicas</span>
             <span
               className={`px-1.5 py-0.2 rounded-full text-[10px] ${
-                activeFilter === 'farmacia' ? 'bg-white/20 text-white' : 'bg-[#e9e7eb] text-[#45474e]'
+                activeFilter === 'odontologia' ? 'bg-white/20 text-white' : 'bg-[#e9e7eb] text-[#45474e]'
               }`}
             >
-              {TESTIMONIALS_DATA.filter((i) => i.category === 'farmacia').length}
+              {TESTIMONIALS_DATA.filter((i) => i.category === 'odontologia').length}
             </span>
           </button>
 
@@ -226,7 +226,7 @@ export const TestimonialsSection: React.FC = () => {
                             : 'bg-[#1a73e8]/10 text-[#1a73e8]'
                         }`}
                       >
-                        {item.category === 'estetica' ? 'Estética' : 'Farmácia'}
+                        {item.category === 'estetica' ? 'Estética' : 'Odontologia'}
                       </span>
                     </div>
 
@@ -288,10 +288,10 @@ export const TestimonialsSection: React.FC = () => {
               <span>Segurança & Compromisso Ético</span>
             </div>
             <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight text-white">
-              Sua farmácia ou clínica com o mesmo nível de resultado
+              Sua clínica odontológica ou de estética com o mesmo nível de resultado
             </h3>
             <p className="text-xs sm:text-sm text-white/80 max-w-xl">
-              Estratégias 100% desenhadas para as normas do CRF, CFM, Anvisa e Conselhos de Biomedicina e Odontologia. Sem risco de suspensão da conta Google.
+              Estratégias 100% desenhadas para as normas do CFO/CRO, CFM, Anvisa e Conselhos de Biomedicina. Sem risco de suspensão da conta Google.
             </p>
           </div>
 

@@ -16,7 +16,7 @@ export const Footer: React.FC<FooterProps> = ({ config }) => {
           <div className="flex flex-col gap-3">
             <RicksLogo size="sm" />
             <p className="text-xs text-[#45474e] leading-relaxed">
-              Consultoria de alta performance em aceleração comercial, Google Meu Negócio e atração de pacientes e clientes no WhatsApp para farmácias e clínicas de estética.
+              Consultoria de alta performance em aceleração comercial, Google Meu Negócio e atração de pacientes particulares no WhatsApp para clínicas odontológicas e clínicas de estética.
             </p>
             <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#e1e3e8] text-[#45474e] text-[11px] font-semibold w-fit">
               <span className="material-symbols-outlined text-[15px] text-[#006e2c]">verified</span>
@@ -99,7 +99,7 @@ export const Footer: React.FC<FooterProps> = ({ config }) => {
         <div className="w-full h-px bg-[#c1c6d6]/30"></div>
 
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left text-[11px] text-[#45474e]">
-          <p>© {new Date().getFullYear()} Ricks Marketing Consultoria para Saúde & Estética Ltda. Todos os direitos reservados.</p>
+          <p>© {new Date().getFullYear()} Ricks Marketing Consultoria para Odontologia & Estética Ltda. Todos os direitos reservados.</p>
           <div className="flex items-center gap-4">
             <a className="hover:text-[#1a73e8] transition-colors" href="#">Privacidade</a>
             <a className="hover:text-[#1a73e8] transition-colors" href="#">Segurança</a>

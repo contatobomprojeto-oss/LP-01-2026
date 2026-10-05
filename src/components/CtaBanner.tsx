@@ -27,7 +27,7 @@ export const CtaBanner: React.FC<CtaBannerProps> = ({ config }) => {
         </h2>
 
         <p className="text-xs sm:text-base text-white/90 max-w-lg leading-relaxed">
-          Agende uma sessão diagnóstica exclusiva de 25 minutos com nosso especialista no ecossistema Google para Farmácias e Clínicas de Estética.
+          Agende uma sessão diagnóstica exclusiva de 25 minutos com nosso especialista no ecossistema Google para Clínicas Odontológicas e de Estética.
         </p>
 
         <div className="w-full sm:w-auto flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 pt-2">

@@ -36,7 +36,7 @@ export const Navbar: React.FC<NavbarProps> = ({ config }) => {
           Google Partner Specialist
         </span>
         <span>•</span>
-        <span>Farmácias, Drogarias & Clínicas de Estética</span>
+        <span>Clínicas Odontológicas & Clínicas de Estética</span>
         <span className="hidden sm:inline">•</span>
         <span className="hidden sm:inline-flex items-center gap-1 text-[#006e2c] font-semibold">
           <span className="w-1.5 h-1.5 rounded-full bg-[#006e2c] animate-pulse"></span>

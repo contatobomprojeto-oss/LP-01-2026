@@ -23,7 +23,7 @@ export default function App() {
   // Load config with localStorage fallback
   const [config] = useState<ContactConfig>(() => {
     try {
-      const saved = localStorage.getItem('ricks_pharma_config');
+      const saved = localStorage.getItem('ricks_consultoria_config');
       if (saved) {
         const parsed = JSON.parse(saved);
         // Ensure confirmed phone number +5562992231843 and email are preserved
@@ -43,7 +43,7 @@ export default function App() {
   // Persist config
   useEffect(() => {
     try {
-      localStorage.setItem('ricks_pharma_config', JSON.stringify(config));
+      localStorage.setItem('ricks_consultoria_config', JSON.stringify(config));
     } catch (e) {
       console.error('Failed to save config to localStorage', e);
     }
@@ -65,7 +65,7 @@ export default function App() {
           }}
         />
 
-        {/* 2. Gargalos Locais da Farmácia & Clínica de Estética */}
+        {/* 2. Gargalos Locais da Clínica Odontológica & de Estética */}
         <GargalosSection />
 
         {/* 3. As 5 Frentes de Domínio Local */}

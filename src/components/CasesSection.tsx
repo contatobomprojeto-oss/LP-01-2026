@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { CASES_DATA } from '../data/initialData';
 
 export const CasesSection: React.FC = () => {
-  const [filter, setFilter] = useState<'todos' | 'farmacia' | 'estetica'>('todos');
+  const [filter, setFilter] = useState<'todos' | 'odontologia' | 'estetica'>('todos');
 
   const filteredCases = filter === 'todos' 
     ? CASES_DATA 
@@ -25,10 +25,10 @@ export const CasesSection: React.FC = () => {
               Histórico Comprovado
             </span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#191c20] tracking-tight leading-tight">
-              Resultados Reais em Farmácias & Clínicas de Estética
+              Resultados Reais em Clínicas Odontológicas & de Estética
             </h2>
             <p className="text-xs sm:text-base text-[#45474e]">
-              Empresas que transformaram sua presença no Google e WhatsApp em geradores previsíveis de pacientes e vendas.
+              Clínicas que transformaram sua presença no Google e WhatsApp em geradores previsíveis de pacientes particulares e tratamentos fechados.
             </p>
           </div>
           <span className="text-[11px] sm:text-xs text-[#45474e] italic sm:text-right">
@@ -46,8 +46,8 @@ export const CasesSection: React.FC = () => {
         >
           {[
             { key: 'todos', label: 'Todos os Casos' },
+            { key: 'odontologia', label: 'Clínicas Odontológicas' },
             { key: 'estetica', label: 'Clínicas de Estética' },
-            { key: 'farmacia', label: 'Farmácias & Drogarias' },
           ].map((tab) => (
             <button
               key={tab.key}

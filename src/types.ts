@@ -1,8 +1,9 @@
 export interface Lead {
   id: string;
   nome: string;
-  farmacia: string;
-  tipoNegocio?: 'farmacia' | 'estetica' | 'outro';
+  clinica: string;
+  farmacia?: string; // fallback
+  tipoNegocio?: 'odontologia' | 'estetica' | 'farmacia' | 'outro';
   cnpj?: string;
   whatsapp: string;
   email: string;
@@ -35,7 +36,7 @@ export interface FrenteItem {
 export interface CaseStudy {
   id: string;
   tag: string;
-  category: 'farmacia' | 'estetica' | 'rede' | 'hiperlocal' | 'reputacao';
+  category: 'odontologia' | 'estetica' | 'rede' | 'hiperlocal' | 'reputacao' | 'farmacia';
   title: string;
   description: string;
   metrics: {
@@ -58,7 +59,7 @@ export interface TestimonialItem {
   role: string;
   businessName: string;
   cityState: string;
-  category: 'farmacia' | 'estetica';
+  category: 'odontologia' | 'estetica';
   photoUrl: string;
   rating: number;
   highlightMetric: string;

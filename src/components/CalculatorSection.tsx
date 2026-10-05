@@ -7,8 +7,8 @@ interface CalculatorSectionProps {
 }
 
 export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ config }) => {
-  const [clientes, setClientes] = useState(1800);
-  const [ticket, setTicket] = useState(70);
+  const [clientes, setClientes] = useState(600);
+  const [ticket, setTicket] = useState(250);
   const [taxa, setTaxa] = useState(20);
 
   const formatBRL = (valor: number) => {
@@ -21,11 +21,11 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ config }) 
 
   const getWhatsappSimulatorUrl = () => {
     const text = encodeURIComponent(
-      `Olá, quero melhorar meus resultados, vamos agendar uma conversa! Fiz a simulação no site: ${clientes.toLocaleString(
+      `Olá, quero melhorar meus resultados na clínica, vamos agendar uma conversa! Fiz a simulação no site: ${clientes.toLocaleString(
         'pt-BR'
-      )} clientes/mês com ticket de ${formatBRL(ticket)}. Potencial estimado de +${novosClientes.toLocaleString(
+      )} pacientes/mês com ticket de ${formatBRL(ticket)}. Potencial estimado de +${novosClientes.toLocaleString(
         'pt-BR'
-      )} atendimentos e ${formatBRL(fatMensal)}/mês adicional.`
+      )} novos pacientes e ${formatBRL(fatMensal)}/mês adicional.`
     );
     return `https://wa.me/${config.whatsappNumber.replace(/\D/g, '')}?text=${text}`;
   };
@@ -48,7 +48,7 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ config }) 
             Calculadora de Oportunidades
           </h2>
           <p className="text-xs sm:text-base text-[#45474e] leading-relaxed">
-            Arraste os controles abaixo para estimar em tempo real quanto de faturamento adicional sua farmácia ou clínica de estética pode destravar.
+            Arraste os controles abaixo para estimar em tempo real quanto de faturamento adicional sua clínica odontológica ou de estética pode destravar.
           </p>
 
           {/* Quick Presets */}
@@ -56,28 +56,28 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ config }) 
             <span className="text-[11px] sm:text-xs text-[#45474e] font-medium block mb-2 text-center">Cenários rápidos:</span>
             <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:justify-center sm:gap-2">
               <button
-                onClick={() => applyPreset(900, 55, 15)}
+                onClick={() => applyPreset(350, 180, 20)}
                 className="min-h-[40px] px-3 py-2 rounded-xl sm:rounded-full bg-[#f1f3f7] hover:bg-[#e9e7eb] active:bg-[#d8e2ff] text-xs font-semibold text-[#191c20] transition-colors cursor-pointer text-center"
               >
-                Farmácia de Bairro
+                Consultório Odonto
               </button>
               <button
-                onClick={() => applyPreset(2200, 75, 25)}
+                onClick={() => applyPreset(750, 320, 25)}
                 className="min-h-[40px] px-3 py-2 rounded-xl sm:rounded-full bg-[#f1f3f7] hover:bg-[#e9e7eb] active:bg-[#d8e2ff] text-xs font-semibold text-[#191c20] transition-colors cursor-pointer text-center"
               >
-                Drogaria Média
+                Clínica Odonto Integrada
               </button>
               <button
-                onClick={() => applyPreset(400, 220, 20)}
+                onClick={() => applyPreset(400, 250, 20)}
                 className="min-h-[40px] px-3 py-2 rounded-xl sm:rounded-full bg-[#f1f3f7] hover:bg-[#e9e7eb] active:bg-[#d8e2ff] text-xs font-semibold text-[#191c20] transition-colors cursor-pointer text-center"
               >
                 Clínica Estética
               </button>
               <button
-                onClick={() => applyPreset(950, 350, 25)}
+                onClick={() => applyPreset(600, 550, 25)}
                 className="min-h-[40px] px-3 py-2 rounded-xl sm:rounded-full bg-[#f1f3f7] hover:bg-[#e9e7eb] active:bg-[#d8e2ff] text-xs font-semibold text-[#191c20] transition-colors cursor-pointer text-center"
               >
-                Harmonização
+                Implantes & Harmonização
               </button>
             </div>
           </div>
@@ -91,7 +91,7 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ config }) 
             <div className="flex flex-col gap-1.5 sm:gap-2">
               <div className="flex items-center justify-between text-xs sm:text-sm">
                 <label className="font-bold text-[#191c20]" htmlFor="input-clientes">
-                  Clientes atendidos por mês:
+                  Pacientes atendidos por mês:
                 </label>
                 <span className="text-base sm:text-lg font-extrabold text-[#1a73e8]">
                   {clientes.toLocaleString('pt-BR')}
@@ -100,17 +100,17 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ config }) 
               <input
                 id="input-clientes"
                 type="range"
-                min="300"
-                max="10000"
-                step="100"
+                min="100"
+                max="5000"
+                step="50"
                 value={clientes}
                 onChange={(e) => setClientes(parseInt(e.target.value, 10))}
                 className="w-full h-3 sm:h-2.5 bg-[#e1e3e8] rounded-lg appearance-none cursor-pointer"
               />
               <div className="flex justify-between text-[10px] sm:text-[11px] text-[#45474e]">
-                <span>300</span>
-                <span>5.000</span>
-                <span>10.000+</span>
+                <span>100</span>
+                <span>2.500</span>
+                <span>5.000+</span>
               </div>
             </div>
 
@@ -118,7 +118,7 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ config }) 
             <div className="flex flex-col gap-1.5 sm:gap-2">
               <div className="flex items-center justify-between text-xs sm:text-sm">
                 <label className="font-bold text-[#191c20]" htmlFor="input-ticket">
-                  Ticket Médio por Venda (R$):
+                  Ticket Médio por Tratamento/Procedimento (R$):
                 </label>
                 <span className="text-base sm:text-lg font-extrabold text-[#1a73e8]">
                   {formatBRL(ticket)}
@@ -127,17 +127,17 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ config }) 
               <input
                 id="input-ticket"
                 type="range"
-                min="25"
-                max="500"
-                step="5"
+                min="50"
+                max="1500"
+                step="25"
                 value={ticket}
                 onChange={(e) => setTicket(parseFloat(e.target.value))}
                 className="w-full h-3 sm:h-2.5 bg-[#e1e3e8] rounded-lg appearance-none cursor-pointer"
               />
               <div className="flex justify-between text-[10px] sm:text-[11px] text-[#45474e]">
-                <span>R$ 25</span>
-                <span>R$ 250</span>
-                <span>R$ 500+</span>
+                <span>R$ 50</span>
+                <span>R$ 750</span>
+                <span>R$ 1.500+</span>
               </div>
             </div>
 
@@ -145,7 +145,7 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ config }) 
             <div className="flex flex-col gap-1.5 sm:gap-2 accent-secondary">
               <div className="flex items-center justify-between text-xs sm:text-sm">
                 <label className="font-bold text-[#191c20]" htmlFor="input-taxa">
-                  Estimativa de Novos Clientes via Google:
+                  Estimativa de Novos Pacientes via Google:
                 </label>
                 <span className="text-base sm:text-lg font-extrabold text-[#006e2c]">
                   {taxa}%
@@ -178,7 +178,7 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ config }) 
             <div className="flex items-center justify-between pb-2 border-b border-[#c1c6d6]/20">
               <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-[#006e2c] flex items-center gap-1">
                 <span className="material-symbols-outlined text-[15px] sm:text-[16px]">trending_up</span>
-                Potencial Mapeado do seu Negócio
+                Potencial Mapeado da sua Clínica
               </span>
               <span className="px-2 py-0.5 rounded-full bg-[#89fa9b] text-[#002108] text-[9px] sm:text-[10px] font-bold">
                 Estimativa Real
@@ -187,11 +187,11 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ config }) 
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
               <div className="p-2.5 sm:p-3 rounded-xl bg-[#f1f3f7] flex flex-col gap-0.5">
-                <span className="text-[11px] sm:text-xs text-[#45474e]">Novos Clientes / Mês</span>
+                <span className="text-[11px] sm:text-xs text-[#45474e]">Novos Pacientes / Mês</span>
                 <span className="text-xl sm:text-2xl font-black text-[#191c20]">
                   +{novosClientes.toLocaleString('pt-BR')}
                 </span>
-                <span className="text-[10px] sm:text-[11px] text-[#006e2c] font-medium">no balcão e WhatsApp</span>
+                <span className="text-[10px] sm:text-[11px] text-[#006e2c] font-medium">na recepção e WhatsApp</span>
               </div>
 
               <div className="p-2.5 sm:p-3 rounded-xl bg-[#f1f3f7] flex flex-col gap-0.5">
@@ -199,7 +199,7 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ config }) 
                 <span className="text-xl sm:text-2xl font-black text-[#1a73e8]">
                   {formatBRL(fatMensal)}
                 </span>
-                <span className="text-[10px] sm:text-[11px] text-[#1a73e8] font-medium">direto no caixa</span>
+                <span className="text-[10px] sm:text-[11px] text-[#1a73e8] font-medium">faturamento em tratamentos</span>
               </div>
             </div>
 
@@ -212,7 +212,7 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ config }) 
                 {formatBRL(fatAnual)}
               </span>
               <span className="text-[10px] sm:text-[11px] text-[#45474e]">
-                Considerando recompras, tratamentos e procedimentos complementares.
+                Considerando planos de tratamento completos, manutenções e procedimentos complementares.
               </span>
             </div>
 

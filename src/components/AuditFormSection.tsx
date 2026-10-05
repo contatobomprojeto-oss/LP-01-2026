@@ -9,12 +9,12 @@ interface AuditFormSectionProps {
 
 export const AuditFormSection: React.FC<AuditFormSectionProps> = ({ config, onAddLead }) => {
   const [nome, setNome] = useState('');
-  const [farmacia, setFarmacia] = useState('');
-  const [tipoNegocio, setTipoNegocio] = useState<'farmacia' | 'estetica' | 'outro'>('farmacia');
+  const [clinica, setClinica] = useState('');
+  const [tipoNegocio, setTipoNegocio] = useState<'odontologia' | 'estetica' | 'outro'>('odontologia');
   const [cnpj, setCnpj] = useState('');
   const [whatsapp, setWhatsapp] = useState('');
   const [email, setEmail] = useState('');
-  const [volume, setVolume] = useState('1001-3000');
+  const [volume, setVolume] = useState('501-1500');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submittedLead, setSubmittedLead] = useState<Lead | null>(null);
 
@@ -56,14 +56,15 @@ export const AuditFormSection: React.FC<AuditFormSectionProps> = ({ config, onAd
     const segmentLabel =
       tipoNegocio === 'estetica'
         ? 'Clínica de Estética / Harmonização'
-        : tipoNegocio === 'farmacia'
-        ? 'Farmácia / Drogaria'
-        : 'Consultório / Saúde Integrada';
+        : tipoNegocio === 'odontologia'
+        ? 'Clínica Odontológica / Consultório'
+        : 'Centro de Saúde Integrada / Outro';
 
     const newLead: Lead = {
       id: 'lead-' + Date.now(),
       nome,
-      farmacia,
+      clinica,
+      farmacia: clinica,
       tipoNegocio,
       cnpj: cnpj || undefined,
       whatsapp,
@@ -82,15 +83,15 @@ export const AuditFormSection: React.FC<AuditFormSectionProps> = ({ config, onAd
           Accept: 'application/json',
         },
         body: JSON.stringify({
-          _subject: `[Novo Lead RickS Marketing] Auditoria Solicitada - ${farmacia}`,
+          _subject: `[Novo Lead Ricks Marketing] Auditoria Solicitada - ${clinica}`,
           _template: 'table',
-          'Nome do Gestor': nome,
-          'Nome da Farmácia/Clínica': farmacia,
+          'Nome do Gestor/Dentista': nome,
+          'Nome da Clínica': clinica,
           'Segmento': segmentLabel,
           'WhatsApp Comercial': whatsapp,
           'E-mail Corporativo': email,
           'CNPJ': cnpj || 'Não informado',
-          'Volume de Atendimentos': volume,
+          'Volume de Pacientes': volume,
           'Data do Envio': new Date().toLocaleString('pt-BR'),
         }),
       });
@@ -106,17 +107,17 @@ export const AuditFormSection: React.FC<AuditFormSectionProps> = ({ config, onAd
 
     // Reset form
     setNome('');
-    setFarmacia('');
-    setTipoNegocio('farmacia');
+    setClinica('');
+    setTipoNegocio('odontologia');
     setCnpj('');
     setWhatsapp('');
     setEmail('');
-    setVolume('1001-3000');
+    setVolume('501-1500');
   };
 
   const getWhatsappConfirmationUrl = (lead: Lead) => {
     const text = encodeURIComponent(
-      `Olá, quero melhorar meus resultados, vamos agendar uma conversa! Acabei de solicitar a auditoria no site para ${lead.farmacia} (Responsável: ${lead.nome}).`
+      `Olá, quero melhorar meus resultados na clínica, vamos agendar uma conversa! Acabei de solicitar a auditoria no site para ${lead.clinica || lead.farmacia} (Responsável: ${lead.nome}).`
     );
     return `https://wa.me/${config.whatsappNumber.replace(/\D/g, '')}?text=${text}`;
   };
@@ -129,10 +130,10 @@ export const AuditFormSection: React.FC<AuditFormSectionProps> = ({ config, onAd
             Diagnóstico Sem Custo
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#191c20] tracking-tight leading-tight">
-            Solicite a Auditoria Gratuita do seu Estabelecimento
+            Solicite a Auditoria Gratuita da sua Clínica
           </h2>
           <p className="text-xs sm:text-base text-[#45474e] max-w-xl">
-            Preencha os dados abaixo. Nossos especialistas farão uma varredura da sua farmácia ou clínica no Google e apresentarão os 3 pontos imediatos de melhoria.
+            Preencha os dados abaixo. Nossos especialistas farão uma varredura da sua clínica odontológica ou de estética no Google e apresentarão os 3 pontos imediatos de melhoria.
           </p>
         </div>
 
@@ -145,7 +146,7 @@ export const AuditFormSection: React.FC<AuditFormSectionProps> = ({ config, onAd
               Auditoria Solicitada com Sucesso!
             </h3>
             <p className="text-xs sm:text-sm text-[#45474e] max-w-md">
-              Os dados de <strong>{submittedLead.farmacia}</strong> foram recebidos e encaminhados diretamente para o e-mail do especialista (<strong>{config.leadDestinationEmail}</strong>). Entraremos em contato no WhatsApp <strong>{submittedLead.whatsapp}</strong>.
+              Os dados de <strong>{submittedLead.clinica || submittedLead.farmacia}</strong> foram recebidos e encaminhados diretamente para o e-mail do especialista (<strong>{config.leadDestinationEmail}</strong>). Entraremos em contato no WhatsApp <strong>{submittedLead.whatsapp}</strong>.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-3 pt-2 w-full sm:w-auto">
@@ -162,7 +163,7 @@ export const AuditFormSection: React.FC<AuditFormSectionProps> = ({ config, onAd
                 onClick={() => setSubmittedLead(null)}
                 className="w-full sm:w-auto min-h-[46px] px-5 rounded-xl sm:rounded-full bg-[#f1f3f7] hover:bg-[#e9e7eb] text-[#191c20] text-xs sm:text-sm font-semibold transition-all cursor-pointer"
               >
-                Enviar Outro Estabelecimento
+                Enviar Outra Clínica
               </button>
             </div>
           </div>
@@ -174,13 +175,13 @@ export const AuditFormSection: React.FC<AuditFormSectionProps> = ({ config, onAd
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
               <div className="flex flex-col gap-1.5">
                 <label className="text-xs font-bold text-[#191c20]" htmlFor="lead-nome">
-                  Nome do Proprietário / Gestor
+                  Nome do Dentista / Gestor(a)
                 </label>
                 <input
                   id="lead-nome"
                   type="text"
                   required
-                  placeholder="Ex: Roberto / Dra. Camila"
+                  placeholder="Ex: Dr. Roberto / Dra. Camila"
                   value={nome}
                   onChange={(e) => setNome(e.target.value)}
                   className="min-h-[48px] px-3.5 rounded-xl bg-[#f1f3f7] text-base sm:text-sm text-[#191c20] border border-[#c1c6d6]/30 focus:border-[#1a73e8] focus:bg-white transition-all outline-none"
@@ -188,7 +189,7 @@ export const AuditFormSection: React.FC<AuditFormSectionProps> = ({ config, onAd
               </div>
               <div className="flex flex-col gap-1.5">
                 <label className="text-xs font-bold text-[#191c20]" htmlFor="lead-tipo">
-                  Segmento do Estabelecimento
+                  Segmento da Clínica
                 </label>
                 <select
                   id="lead-tipo"
@@ -196,31 +197,31 @@ export const AuditFormSection: React.FC<AuditFormSectionProps> = ({ config, onAd
                   onChange={(e) => setTipoNegocio(e.target.value as any)}
                   className="min-h-[48px] px-3.5 rounded-xl bg-[#f1f3f7] text-base sm:text-sm text-[#191c20] border border-[#c1c6d6]/30 focus:border-[#1a73e8] focus:bg-white transition-all outline-none cursor-pointer"
                 >
-                  <option value="farmacia">Farmácia / Drogaria</option>
+                  <option value="odontologia">Clínica Odontológica / Consultório</option>
                   <option value="estetica">Clínica de Estética / Harmonização</option>
-                  <option value="outro">Consultório / Centro de Saúde Integrada</option>
+                  <option value="outro">Centro de Saúde Integrada / Outro</option>
                 </select>
               </div>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
               <div className="flex flex-col gap-1.5">
-                <label className="text-xs font-bold text-[#191c20]" htmlFor="lead-farmacia">
-                  Nome da Farmácia ou Clínica
+                <label className="text-xs font-bold text-[#191c20]" htmlFor="lead-clinica">
+                  Nome da Clínica ou Consultório
                 </label>
                 <input
-                  id="lead-farmacia"
+                  id="lead-clinica"
                   type="text"
                   required
-                  placeholder="Ex: Drogaria Santa Fé ou Clínica Belle"
-                  value={farmacia}
-                  onChange={(e) => setFarmacia(e.target.value)}
+                  placeholder="Ex: OdontoPrime ou Harmonize Estética"
+                  value={clinica}
+                  onChange={(e) => setClinica(e.target.value)}
                   className="min-h-[48px] px-3.5 rounded-xl bg-[#f1f3f7] text-base sm:text-sm text-[#191c20] border border-[#c1c6d6]/30 focus:border-[#1a73e8] focus:bg-white transition-all outline-none"
                 />
               </div>
               <div className="flex flex-col gap-1.5">
                 <label className="text-xs font-bold text-[#191c20]" htmlFor="lead-cnpj">
-                  CNPJ (Opcional)
+                  CNPJ ou CRO (Opcional)
                 </label>
                 <input
                   id="lead-cnpj"
@@ -257,7 +258,7 @@ export const AuditFormSection: React.FC<AuditFormSectionProps> = ({ config, onAd
                   id="lead-email"
                   type="email"
                   required
-                  placeholder="contato@empresa.com.br"
+                  placeholder="contato@clinica.com.br"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="min-h-[48px] px-3.5 rounded-xl bg-[#f1f3f7] text-base sm:text-sm text-[#191c20] border border-[#c1c6d6]/30 focus:border-[#1a73e8] focus:bg-white transition-all outline-none"
@@ -267,7 +268,7 @@ export const AuditFormSection: React.FC<AuditFormSectionProps> = ({ config, onAd
 
             <div className="flex flex-col gap-1.5">
               <label className="text-xs font-bold text-[#191c20]" htmlFor="lead-volume">
-                Clientes ou pacientes atendidos por mês:
+                Média de pacientes atendidos por mês:
               </label>
               <select
                 id="lead-volume"
@@ -275,10 +276,10 @@ export const AuditFormSection: React.FC<AuditFormSectionProps> = ({ config, onAd
                 onChange={(e) => setVolume(e.target.value)}
                 className="min-h-[48px] px-3.5 rounded-xl bg-[#f1f3f7] text-base sm:text-sm text-[#191c20] border border-[#c1c6d6]/30 focus:border-[#1a73e8] focus:bg-white transition-all outline-none cursor-pointer"
               >
-                <option value="ate-500">Até 500 atendimentos/mês</option>
-                <option value="501-1500">De 501 a 1.500 atendimentos/mês</option>
-                <option value="1501-4000">De 1.501 a 4.000 atendimentos/mês</option>
-                <option value="mais-4000">Mais de 4.000 atendimentos/mês</option>
+                <option value="ate-200">Até 200 pacientes/mês</option>
+                <option value="201-600">De 201 a 600 pacientes/mês</option>
+                <option value="601-1500">De 601 a 1.500 pacientes/mês</option>
+                <option value="mais-1500">Mais de 1.500 pacientes/mês</option>
               </select>
             </div>
 
@@ -301,7 +302,7 @@ export const AuditFormSection: React.FC<AuditFormSectionProps> = ({ config, onAd
             </button>
 
             <p className="text-[10px] sm:text-[11px] text-center text-[#45474e]">
-              🔒 Seus dados estão em total sigilo. Consultoria sob rigorosa conformidade com a LGPD.
+              🔒 Seus dados estão em total sigilo. Consultoria sob rigorosa conformidade com a LGPD e normas dos Conselhos Profissionais (CFO e CFM).
             </p>
           </form>
         )}
