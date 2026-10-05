@@ -1,0 +1,6 @@
+{
+  "name": "RickS Marketing - Consultoria para Farmácias",
+  "description": "Consultoria Google Meu Negócio, Tráfego Pago Hiperlocal e Automação WhatsApp para Farmácias e Drogarias.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
