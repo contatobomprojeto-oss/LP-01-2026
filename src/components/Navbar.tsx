@@ -6,11 +6,29 @@ import { DEFAULT_WHATSAPP_MESSAGE } from '../data/initialData';
 
 interface NavbarProps {
   config: ContactConfig;
+  onAdminTrigger?: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ config }) => {
+export const Navbar: React.FC<NavbarProps> = ({ config, onAdminTrigger }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [logoError, setLogoError] = useState(false);
+  const [clickCount, setClickCount] = useState(0);
+
+  const handleLogoClick = (e: React.MouseEvent) => {
+    if (e.altKey) {
+      e.preventDefault();
+      onAdminTrigger?.();
+      return;
+    }
+    const newCount = clickCount + 1;
+    setClickCount(newCount);
+    if (newCount >= 3) {
+      e.preventDefault();
+      setClickCount(0);
+      onAdminTrigger?.();
+    } else {
+      setTimeout(() => setClickCount(0), 1200);
+    }
+  };
 
   const getWhatsappUrl = () => {
     const text = encodeURIComponent(DEFAULT_WHATSAPP_MESSAGE);
@@ -50,6 +68,7 @@ export const Navbar: React.FC<NavbarProps> = ({ config }) => {
           {/* Brand Logo with stylized unique R symbol */}
           <a
             href="#"
+            onClick={handleLogoClick}
             className="flex items-center flex-shrink-0 py-1"
             aria-label="Ricks Marketing - Início"
           >

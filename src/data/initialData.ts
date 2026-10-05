@@ -198,34 +198,7 @@ export const FAQ_DATA: FaqItem[] = [
   },
 ];
 
-export const INITIAL_LEADS: Lead[] = [
-  {
-    id: 'lead-1',
-    nome: 'Dr. Roberto Fernandes',
-    clinica: 'Instituto Fernandes Odontologia',
-    tipoNegocio: 'odontologia',
-    cnpj: '12.345.678/0001-90',
-    whatsapp: '(62) 99123-4567',
-    email: 'roberto@fernandesodonto.com.br',
-    volume: '1001-3000',
-    data: '2026-09-18T14:20:00.000Z',
-    status: 'novo',
-    notas: 'Interesse urgente em dominar o Google Maps para implantes e alinhadores.',
-  },
-  {
-    id: 'lead-2',
-    nome: 'Dra. Camila Vasconcelos',
-    clinica: 'Clínica BellaPelle Estética Avançada',
-    tipoNegocio: 'estetica',
-    cnpj: '98.765.432/0001-11',
-    whatsapp: '(62) 98234-5678',
-    email: 'contato@bellapelle.com.br',
-    volume: '1001-3000',
-    data: '2026-09-17T10:15:00.000Z',
-    status: 'qualificado',
-    notas: 'Deseja atrair mais pacientes particulares para procedimentos estéticos faciais e corporais.',
-  },
-];
+export const INITIAL_LEADS: Lead[] = [];
 
 export const TESTIMONIALS_DATA: TestimonialItem[] = [
   {
