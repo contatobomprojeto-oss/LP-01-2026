@@ -252,10 +252,10 @@ export const LeadsModal: React.FC<LeadsModalProps> = ({
                     : 'text-[#45474e] hover:text-[#191c20]'
                 }`}
               >
-                <span className="material-symbols-outlined text-[17px]">download</span>
-                <span>Exportar Logomarca (PNG)</span>
+                <span className="material-symbols-outlined text-[17px]">image</span>
+                <span>Exportar Logomarca (JPEG / PNG)</span>
                 <span className="px-1.5 py-0.2 rounded-full bg-[#006e2c] text-white text-[9px] font-bold">
-                  Novo
+                  JPEG Disponível
                 </span>
               </button>
             </div>
@@ -445,172 +445,229 @@ export const LeadsModal: React.FC<LeadsModalProps> = ({
               </>
             )}
 
-            {/* TAB 2: LOGO EXPORT (PNG) */}
+            {/* TAB 2: LOGO EXPORT (JPEG / PNG) */}
             {mainTab === 'logo' && (
               <div className="flex-1 overflow-y-auto p-4 sm:p-8 space-y-6 bg-[#fafafc]">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#c1c6d6]/20 pb-4">
                   <div>
                     <h3 className="text-base sm:text-lg font-bold text-[#191c20]">
-                      Pacote Oficial de Logomarca Ricks Marketing (PNG)
+                      Pacote Oficial de Logomarca Ricks Marketing (JPEG / JPG)
                     </h3>
                     <p className="text-xs text-[#45474e]">
-                      Arquivos em alta definição prontos para impressão, WhatsApp, Instagram e apresentações.
+                      Arquivos em formato <strong>JPEG (.jpg)</strong> com 100% de compatibilidade para plataformas que rejeitam PNG (Meta Ads, Google, Canva, WhatsApp, impressões).
                     </p>
                   </div>
-                  <span className="text-[11px] font-semibold px-3 py-1 rounded-full bg-[#006e2c]/10 text-[#006e2c] w-fit">
-                    ✓ Renderizado em Resolução Vetorial
+                  <span className="text-[11px] font-semibold px-3 py-1 rounded-full bg-[#006e2c]/10 text-[#006e2c] w-fit flex items-center gap-1">
+                    <span className="material-symbols-outlined text-[15px]">check_circle</span>
+                    <span>JPEG Padrão Universal Ativo</span>
                   </span>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                  {/* Card 1: Logo Horizontal Fundo Transparente */}
+                  {/* Card 1: Logo Horizontal Fundo Branco */}
                   <div className="p-4 sm:p-5 rounded-2xl bg-white border border-[#c1c6d6]/30 shadow-xs flex flex-col justify-between gap-4">
                     <div className="flex flex-col gap-2.5">
                       <div className="flex items-center justify-between">
-                        <span className="text-xs font-bold text-[#191c20]">Logo Completa (Horizontal)</span>
-                        <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#1a73e8]/10 text-[#1a73e8]">
-                          1600 × 480 px
+                        <span className="text-xs font-bold text-[#191c20]">Logo Horizontal (Fundo Branco)</span>
+                        <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#006e2c]/10 text-[#006e2c]">
+                          JPEG • 1600 × 480 px
                         </span>
                       </div>
                       <p className="text-[11px] text-[#45474e]">
-                        Fundo transparente. Ideal para cabeçalhos de propostas, documentos timbrados, sites e fundos claros.
+                        Fundo branco sólido (#ffffff). Aceito perfeitamente em qualquer plataforma, documentos e apresentações.
                       </p>
 
-                      {/* Preview Box with transparent checker pattern */}
-                      <div className="w-full h-28 rounded-xl bg-[radial-gradient(#e1e3e8_1px,transparent_1px)] [background-size:8px_8px] bg-slate-50 border border-[#c1c6d6]/30 flex items-center justify-center p-3">
+                      {/* Preview Box */}
+                      <div className="w-full h-28 rounded-xl bg-white border border-[#c1c6d6]/30 flex items-center justify-center p-3 shadow-inner">
                         <img
-                          src="/ricks-logo-completo-transparente.png"
-                          alt="Logo Ricks Marketing Transparente"
+                          src="/ricks-logo-completo-fundo-branco.jpg"
+                          alt="Logo Ricks Marketing Fundo Branco"
                           className="max-h-16 max-w-full object-contain"
                         />
                       </div>
                     </div>
 
-                    <a
-                      href="/ricks-logo-completo-transparente.png"
-                      download="ricks-marketing-logo-transparente.png"
-                      className="min-h-[42px] px-4 rounded-xl bg-[#1a73e8] hover:bg-[#1557b0] text-white text-xs font-bold flex items-center justify-center gap-2 shadow-xs transition-colors cursor-pointer"
-                    >
-                      <span className="material-symbols-outlined text-[18px]">download</span>
-                      <span>Baixar PNG Transparente (1600px)</span>
-                    </a>
+                    <div className="flex flex-col gap-1.5">
+                      <a
+                        href="/ricks-logo-completo-fundo-branco.jpg"
+                        download="ricks-marketing-logo-fundo-branco.jpg"
+                        className="min-h-[42px] px-4 rounded-xl bg-[#006e2c] hover:bg-[#005320] text-white text-xs font-bold flex items-center justify-center gap-2 shadow-xs transition-colors cursor-pointer"
+                      >
+                        <span className="material-symbols-outlined text-[18px]">download</span>
+                        <span>Baixar JPEG Fundo Branco (.jpg)</span>
+                      </a>
+                      <a
+                        href="/ricks-logo-completo-transparente.png"
+                        download="ricks-marketing-logo-transparente.png"
+                        className="text-[11px] text-[#1a73e8] hover:underline text-center py-1 font-medium"
+                      >
+                        Baixar em PNG Transparente
+                      </a>
+                    </div>
                   </div>
 
                   {/* Card 2: Logo Horizontal Fundo Escuro */}
                   <div className="p-4 sm:p-5 rounded-2xl bg-white border border-[#c1c6d6]/30 shadow-xs flex flex-col justify-between gap-4">
                     <div className="flex flex-col gap-2.5">
                       <div className="flex items-center justify-between">
-                        <span className="text-xs font-bold text-[#191c20]">Logo Completa (Fundo Escuro)</span>
+                        <span className="text-xs font-bold text-[#191c20]">Logo Horizontal (Fundo Escuro)</span>
                         <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#0b1329] text-white">
-                          1600 × 480 px
+                          JPEG • 1600 × 480 px
                         </span>
                       </div>
                       <p className="text-[11px] text-[#45474e]">
-                        Versão em alto contraste com fundo escuro executivo (#0b1329) e texto em branco e azul celeste.
+                        Fundo escuro executivo (#0b1329) com texto em branco e azul celeste.
                       </p>
 
                       {/* Preview Box */}
                       <div className="w-full h-28 rounded-xl bg-[#0b1329] border border-[#c1c6d6]/30 flex items-center justify-center p-3">
                         <img
-                          src="/ricks-logo-completo-fundo-escuro.png"
+                          src="/ricks-logo-completo-fundo-escuro.jpg"
                           alt="Logo Ricks Marketing Fundo Escuro"
                           className="max-h-16 max-w-full object-contain rounded-lg"
                         />
                       </div>
                     </div>
 
-                    <a
-                      href="/ricks-logo-completo-fundo-escuro.png"
-                      download="ricks-marketing-logo-fundo-escuro.png"
-                      className="min-h-[42px] px-4 rounded-xl bg-[#0b1329] hover:bg-[#191c20] text-white text-xs font-bold flex items-center justify-center gap-2 shadow-xs transition-colors cursor-pointer"
-                    >
-                      <span className="material-symbols-outlined text-[18px]">download</span>
-                      <span>Baixar PNG Fundo Escuro (1600px)</span>
-                    </a>
+                    <div className="flex flex-col gap-1.5">
+                      <a
+                        href="/ricks-logo-completo-fundo-escuro.jpg"
+                        download="ricks-marketing-logo-fundo-escuro.jpg"
+                        className="min-h-[42px] px-4 rounded-xl bg-[#0b1329] hover:bg-[#191c20] text-white text-xs font-bold flex items-center justify-center gap-2 shadow-xs transition-colors cursor-pointer"
+                      >
+                        <span className="material-symbols-outlined text-[18px]">download</span>
+                        <span>Baixar JPEG Fundo Escuro (.jpg)</span>
+                      </a>
+                      <a
+                        href="/ricks-logo-completo-fundo-escuro.png"
+                        download="ricks-marketing-logo-fundo-escuro.png"
+                        className="text-[11px] text-[#1a73e8] hover:underline text-center py-1 font-medium"
+                      >
+                        Baixar em PNG Fundo Escuro
+                      </a>
+                    </div>
                   </div>
 
-                  {/* Card 3: Ícone Símbolo R (Ultra-HD 2048px Master) */}
+                  {/* Card 3: Ícone Símbolo R (Ultra-HD 2048px Master JPEG) */}
                   <div className="p-4 sm:p-5 rounded-2xl bg-white border border-[#c1c6d6]/30 shadow-xs flex flex-col justify-between gap-4">
                     <div className="flex flex-col gap-2.5">
                       <div className="flex items-center justify-between">
                         <span className="text-xs font-bold text-[#191c20]">Ícone Símbolo "R" (Master 2K)</span>
                         <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#006e2c]/10 text-[#006e2c]">
-                          2048 × 2048 px
+                          JPEG • 2048 × 2048 px
                         </span>
                       </div>
                       <p className="text-[11px] text-[#45474e]">
-                        Resolução máxima para outdoors, camisetas, canecas, carimbos e materiais impressos.
+                        Fundo branco sólido em alta resolução 2K. Ideal para impressão, crachás e arquivos gráficos.
                       </p>
 
-                      <div className="w-full h-32 rounded-xl bg-[radial-gradient(#e1e3e8_1px,transparent_1px)] [background-size:8px_8px] bg-slate-50 border border-[#c1c6d6]/30 flex items-center justify-center p-3">
+                      <div className="w-full h-32 rounded-xl bg-white border border-[#c1c6d6]/30 flex items-center justify-center p-3 shadow-inner">
                         <img
-                          src="/ricks-logo-icone-2048.png"
-                          alt="Ícone Ricks Marketing 2K"
+                          src="/ricks-logo-icone-2048.jpg"
+                          alt="Ícone Ricks Marketing 2K JPEG"
                           className="h-20 w-20 object-contain drop-shadow-md"
                         />
                       </div>
                     </div>
 
-                    <a
-                      href="/ricks-logo-icone-2048.png"
-                      download="ricks-icone-master-2048px.png"
-                      className="min-h-[42px] px-4 rounded-xl bg-[#006e2c] hover:bg-[#005320] text-white text-xs font-bold flex items-center justify-center gap-2 shadow-xs transition-colors cursor-pointer"
-                    >
-                      <span className="material-symbols-outlined text-[18px]">download</span>
-                      <span>Baixar Ícone Master 2K (2048px)</span>
-                    </a>
+                    <div className="flex flex-col gap-1.5">
+                      <a
+                        href="/ricks-logo-icone-2048.jpg"
+                        download="ricks-icone-master-2048px.jpg"
+                        className="min-h-[42px] px-4 rounded-xl bg-[#006e2c] hover:bg-[#005320] text-white text-xs font-bold flex items-center justify-center gap-2 shadow-xs transition-colors cursor-pointer"
+                      >
+                        <span className="material-symbols-outlined text-[18px]">download</span>
+                        <span>Baixar JPEG 2K (2048px .jpg)</span>
+                      </a>
+                      <div className="flex items-center justify-center gap-3 pt-0.5">
+                        <a
+                          href="/ricks-logo-icone-2048-fundo-escuro.jpg"
+                          download="ricks-icone-2048px-escuro.jpg"
+                          className="text-[11px] text-[#45474e] hover:text-[#191c20] underline font-medium"
+                        >
+                          JPEG Fundo Escuro
+                        </a>
+                        <span className="text-gray-300">•</span>
+                        <a
+                          href="/ricks-logo-icone-2048.png"
+                          download="ricks-icone-master-2048px.png"
+                          className="text-[11px] text-[#1a73e8] hover:underline font-medium"
+                        >
+                          PNG Transparente
+                        </a>
+                      </div>
+                    </div>
                   </div>
 
-                  {/* Card 4: Ícone para Redes Sociais & WhatsApp (1024px e 512px) */}
+                  {/* Card 4: Ícone para Redes Sociais & WhatsApp (1024px e 512px JPEG) */}
                   <div className="p-4 sm:p-5 rounded-2xl bg-white border border-[#c1c6d6]/30 shadow-xs flex flex-col justify-between gap-4">
                     <div className="flex flex-col gap-2.5">
                       <div className="flex items-center justify-between">
-                        <span className="text-xs font-bold text-[#191c20]">Ícone para Redes Sociais</span>
+                        <span className="text-xs font-bold text-[#191c20]">Ícone para Redes Sociais & WhatsApp</span>
                         <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#1a73e8]/10 text-[#1a73e8]">
-                          1024px & 512px
+                          JPEG • 1024px & 512px
                         </span>
                       </div>
                       <p className="text-[11px] text-[#45474e]">
-                        Dimensões quadradas exatas para foto de perfil do WhatsApp Business, Instagram e favicon.
+                        Formato <strong>.jpg</strong> compatível com foto de perfil do WhatsApp, Instagram, Google Meu Negócio e Facebook.
                       </p>
 
-                      <div className="w-full h-32 rounded-xl bg-slate-50 border border-[#c1c6d6]/30 flex items-center justify-center gap-6 p-3">
+                      <div className="w-full h-32 rounded-xl bg-white border border-[#c1c6d6]/30 flex items-center justify-center gap-6 p-3 shadow-inner">
                         <div className="flex flex-col items-center gap-1">
                           <img
-                            src="/ricks-logo-icone-1024.png"
-                            alt="Ícone 1024"
-                            className="h-16 w-16 rounded-full border-2 border-white shadow-md"
+                            src="/ricks-logo-icone-1024.jpg"
+                            alt="Ícone 1024 JPEG"
+                            className="h-16 w-16 rounded-full border-2 border-[#1a73e8]/30 shadow-md"
                           />
                           <span className="text-[9px] text-[#727785]">Preview Perfil</span>
                         </div>
                         <div className="flex flex-col items-center gap-1">
                           <img
-                            src="/ricks-logo-icone-512.png"
-                            alt="Ícone 512"
-                            className="h-12 w-12 rounded-xl shadow-xs"
+                            src="/ricks-logo-icone-512.jpg"
+                            alt="Ícone 512 JPEG"
+                            className="h-12 w-12 rounded-xl shadow-xs border border-gray-100"
                           />
                           <span className="text-[9px] text-[#727785]">App Icon</span>
                         </div>
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-2">
-                      <a
-                        href="/ricks-logo-icone-1024.png"
-                        download="ricks-icone-perfil-1024px.png"
-                        className="min-h-[42px] px-3 rounded-xl bg-[#f1f3f7] hover:bg-[#e9e7eb] text-[#191c20] text-xs font-bold flex items-center justify-center gap-1.5 transition-colors cursor-pointer border border-[#c1c6d6]/40"
-                      >
-                        <span className="material-symbols-outlined text-[16px]">download</span>
-                        <span>Baixar 1024px</span>
-                      </a>
-                      <a
-                        href="/ricks-logo-icone-512.png"
-                        download="ricks-icone-avatar-512px.png"
-                        className="min-h-[42px] px-3 rounded-xl bg-[#f1f3f7] hover:bg-[#e9e7eb] text-[#191c20] text-xs font-bold flex items-center justify-center gap-1.5 transition-colors cursor-pointer border border-[#c1c6d6]/40"
-                      >
-                        <span className="material-symbols-outlined text-[16px]">download</span>
-                        <span>Baixar 512px</span>
-                      </a>
+                    <div className="flex flex-col gap-2">
+                      <div className="grid grid-cols-2 gap-2">
+                        <a
+                          href="/ricks-logo-icone-1024.jpg"
+                          download="ricks-icone-perfil-1024px.jpg"
+                          className="min-h-[42px] px-3 rounded-xl bg-[#1a73e8] hover:bg-[#1557b0] text-white text-xs font-bold flex items-center justify-center gap-1.5 transition-colors cursor-pointer shadow-xs"
+                        >
+                          <span className="material-symbols-outlined text-[16px]">download</span>
+                          <span>Baixar 1024px (.jpg)</span>
+                        </a>
+                        <a
+                          href="/ricks-logo-icone-512.jpg"
+                          download="ricks-icone-avatar-512px.jpg"
+                          className="min-h-[42px] px-3 rounded-xl bg-[#1a73e8] hover:bg-[#1557b0] text-white text-xs font-bold flex items-center justify-center gap-1.5 transition-colors cursor-pointer shadow-xs"
+                        >
+                          <span className="material-symbols-outlined text-[16px]">download</span>
+                          <span>Baixar 512px (.jpg)</span>
+                        </a>
+                      </div>
+                      <div className="flex items-center justify-center gap-3 pt-0.5">
+                        <a
+                          href="/ricks-logo-icone-1024-fundo-escuro.jpg"
+                          download="ricks-icone-1024px-escuro.jpg"
+                          className="text-[11px] text-[#45474e] hover:text-[#191c20] underline font-medium"
+                        >
+                          1024px Fundo Escuro
+                        </a>
+                        <span className="text-gray-300">•</span>
+                        <a
+                          href="/ricks-logo-icone-1024.png"
+                          download="ricks-icone-1024px.png"
+                          className="text-[11px] text-[#1a73e8] hover:underline font-medium"
+                        >
+                          Versão PNG
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>

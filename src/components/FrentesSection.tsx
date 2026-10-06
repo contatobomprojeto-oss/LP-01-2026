@@ -18,7 +18,7 @@ export const FrentesSection: React.FC = () => {
             Metodologia Exclusiva Ricks Marketing
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#191c20] tracking-tight leading-tight">
-            As 5 Frentes de Domínio Local para Clínicas Odontológicas & de Estética
+            As 5 Frentes de Domínio Local para Clínicas Odontológicas & Estética
           </h2>
           <p className="text-xs sm:text-base text-[#45474e] leading-relaxed max-w-xl">
             Uma engrenagem comercial validada para consolidar sua clínica odontológica ou de estética como a escolha número 1 da sua região.

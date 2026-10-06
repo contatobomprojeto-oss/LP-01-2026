@@ -25,7 +25,7 @@ export const CasesSection: React.FC = () => {
               Histórico Comprovado
             </span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#191c20] tracking-tight leading-tight">
-              Resultados Reais em Clínicas Odontológicas & de Estética
+              Resultados Reais em Clínicas Odontológicas & Estética
             </h2>
             <p className="text-xs sm:text-base text-[#45474e]">
               Clínicas que transformaram sua presença no Google e WhatsApp em geradores previsíveis de pacientes particulares e tratamentos fechados.
